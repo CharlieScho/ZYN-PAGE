@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYN Executor - Download</title>
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #8b5cf6; /* Violet */
+            --secondary-color: #3b82f6; /* Blue */
+            --bg-color: #0f0f11;
+            --card-bg: #18181b;
+            --text-color: #ffffff;
+            --badge-bg: rgba(34, 197, 94, 0.15);
+            --badge-text: #4ade80; /* Green */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1e1e24 0%, #0f0f11 100%);
+        }
+
+        /* Background animated particles (Simple CSS bubbles) */
+        .background-fx {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute;
+            background: var(--primary-color);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            animation: float 10s infinite ease-in-out;
+        }
+        .blob:nth-child(1) { top: 20%; left: 20%; width: 300px; height: 300px; animation-delay: 0s; }
+        .blob:nth-child(2) { bottom: 20%; right: 20%; width: 250px; height: 250px; background: var(--secondary-color); animation-delay: -5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        /* Main Card */
+        .container {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 30%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* The 83 UNC Badge */
+        .unc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.1);
+        }
+
+        .unc-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #52525b;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Effects -->
+    <div class="background-fx">
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>ZYN Executor</h1>
+        <p class="subtitle">Next Generation Script Execution</p>
+        
+        <!-- The Icon and Text requested -->
+        <div class="unc-badge">
+            <!-- Shield/Check Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22ZM11.0026 16L6.75999 11.7574L8.17421 10.3431L11.0026 13.1716L16.6595 7.51472L18.0737 8.92893L11.0026 16Z"></path></svg>
+            83 UNC Supported
+        </div>
+
+        <!-- Download Button -->
+        <!-- The Javascript below handles the click -->
+        <button id="downloadBtn" class="download-btn">
+            Download Now
+        </button>
+
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT CONFIGURATION --- */
+
+        // ==========================================
+        // SET YOUR DOWNLOAD URL HERE:
+        // ==========================================
+        const YOUR_DOWNLOAD_URL = "https://example.com/download-zyn"; 
+        // Change the link above ^ to your specific URL
+        // ==========================================
+
+
+        // Logic to handle the button click
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Optional: Add a text change to indicate click
+            const btn = this;
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Starting...";
+            
+            // Wait 500ms for effect, then redirect
+            setTimeout(() => {
+                window.location.href = YOUR_DOWNLOAD_URL;
+                
+                // Reset text after a moment (in case user comes back)
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                }, 2000);
+            }, 500);
+        });
+    </script>
+</body>
+</html>
